@@ -9,10 +9,12 @@ function QrCodePreview(): JSX.Element {
 
   return (
     <Styles.QrCodePreviewContainer>
-      {qrHref && (
+      {qrHref ? (
         <svg width="100%" height="100%">
           <image xlinkHref={qrHref} width="100%" height="100%" />
         </svg>
+      ) : (
+        <p>Generate your first QR code.</p>
       )}
     </Styles.QrCodePreviewContainer>
   );

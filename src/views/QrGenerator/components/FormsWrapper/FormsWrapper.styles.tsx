@@ -30,13 +30,21 @@ export const GenerateButton = styled.button`
   }
 `;
 
-export const InputWrapper = styled.div`
+export const Label = styled.label`
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+`;
+
+export const InputWrapper = styled.div<{ noMargin?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: ${({ noMargin }) => (noMargin ? '0' : '1rem')};
 
   input,
   select {
@@ -54,4 +62,20 @@ export const Error = styled.span`
   color: red;
   font-size: 0.8rem;
   margin-top: 0.5rem;
+`;
+
+export const AddButton = styled.button`
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  color: #184e77;
+  border: 1px solid #184e77;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+`;
+
+export const RemoveButton = styled(AddButton)`
+  color: red;
+  border: 1px solid red;
 `;

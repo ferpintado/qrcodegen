@@ -3,5 +3,3 @@ export const QR_CODE_TYPES = {
   WIFI: 'wifi',
   VCARD: 'vcard',
 } as const;
-
-export const DEFAULT_QR_CODE = 'https://www.squareup.com/';

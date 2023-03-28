@@ -4,7 +4,7 @@ import {
   QrGeneratorProviderProps,
   QrType,
 } from './QrGenerator.types';
-import { QR_CODE_TYPES, DEFAULT_QR_CODE } from './QrGenerator.constants';
+import { QR_CODE_TYPES } from './QrGenerator.constants';
 
 const QrGeneratorContext = createContext({} as QrContextType);
 
@@ -24,7 +24,7 @@ export const QrGeneratorProvider: React.FC<QrGeneratorProviderProps> = ({
   children,
 }) => {
   const [qrType, setQrType] = useState<QrType>(QR_CODE_TYPES.URL);
-  const [qrArgs, setQrArgs] = useState<string>(DEFAULT_QR_CODE);
+  const [qrArgs, setQrArgs] = useState<string>('');
 
   const value = { qrType, setQrType, qrArgs, setQrArgs };
 

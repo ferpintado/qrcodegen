@@ -25,19 +25,14 @@ function UrlForm(): JSX.Element {
     <>
       <FormStyles.InputWrapper>
         <label htmlFor="url">URL:</label>
-        <input
-          type="text"
-          id="url"
-          onChange={formik.handleChange}
-          value={formik.values.url}
-        />
+        <input type="text" id="url" {...formik.getFieldProps('url')} />
         <FormStyles.Error>
-          {formik.values.url && formik.errors.url}
+          {formik.touched.url && formik.errors.url}
         </FormStyles.Error>
       </FormStyles.InputWrapper>
       <FormStyles.GenerateButton
         onClick={formik.submitForm}
-        disabled={!formik.isValid}
+        disabled={!formik.isValid || !formik.dirty}
       >
         Generate
       </FormStyles.GenerateButton>

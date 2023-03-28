@@ -28,14 +28,9 @@ function WifiForm(): JSX.Element {
     <>
       <FormStyles.InputWrapper>
         <label htmlFor="name">Network name:</label>
-        <input
-          type="text"
-          id="name"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-        />
+        <input type="text" id="name" {...formik.getFieldProps('name')} />
         <FormStyles.Error>
-          {formik.values.name && formik.errors.name}
+          {formik.touched.name && formik.errors.name}
         </FormStyles.Error>
       </FormStyles.InputWrapper>
       <FormStyles.InputWrapper>
@@ -43,32 +38,26 @@ function WifiForm(): JSX.Element {
         <input
           type="text"
           id="password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
+          {...formik.getFieldProps('password')}
         />
         <FormStyles.Error>
-          {formik.values.password && formik.errors.password}
+          {formik.touched.password && formik.errors.password}
         </FormStyles.Error>
       </FormStyles.InputWrapper>
 
       <FormStyles.InputWrapper>
         <label htmlFor="password">Security type:</label>
-        <select
-          name="encryption"
-          id="encryption"
-          onChange={formik.handleChange}
-          value={formik.values.encryption}
-        >
+        <select id="encryption" {...formik.getFieldProps('encryption')}>
           <option value="WPA">WPA</option>
           <option value="WEP">WEP</option>
         </select>
         <FormStyles.Error>
-          {formik.values.encryption && formik.errors.encryption}
+          {formik.touched.encryption && formik.errors.encryption}
         </FormStyles.Error>
       </FormStyles.InputWrapper>
       <FormStyles.GenerateButton
         onClick={formik.submitForm}
-        disabled={!formik.isValid}
+        disabled={!formik.isValid || !formik.dirty}
       >
         Generate
       </FormStyles.GenerateButton>

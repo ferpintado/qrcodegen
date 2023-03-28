@@ -5,3 +5,5 @@ export type VCardFormProps = {
   workPhone: string[];
   email: string[];
 };
+
+export type MultipleField = 'homePhone' | 'workPhone' | 'email';
