@@ -6,7 +6,7 @@ import {
 } from './QrGenerator.types';
 import { QR_CODE_TYPES } from './QrGenerator.constants';
 
-const QrGeneratorContext = createContext({} as QrContextType);
+export const QrGeneratorContext = createContext({} as QrContextType);
 
 export const useQrGeneratorContext = () => {
   const context = useContext(QrGeneratorContext);

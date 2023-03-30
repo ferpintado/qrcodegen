@@ -15,5 +15,9 @@ export const vCardFormValidationSchema = Yup.object().shape({
       .matches(phoneRegExp, 'Phone number should be in (xxx) xxx-xxxx format')
       .required('Please enter a phone number')
   ),
-  email: Yup.array().of(Yup.string().email('Please enter a valid email')),
+  email: Yup.array().of(
+    Yup.string()
+      .email('Please enter a valid email')
+      .required('Please enter an email')
+  ),
 });

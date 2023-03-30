@@ -1,9 +1,6 @@
 import { QR_CODE_TYPES } from '../../QrGenerator.constants';
-import { UrlFormProps } from '../../components/FormsWrapper/UrlForm/UrlForm.types';
-import { VCardFormProps } from '../../components/FormsWrapper/VCardForm/VCardForm.types';
-import { WifiFormProps } from '../../components/FormsWrapper/WifiForm/WifiForm.types';
-
-type Values = UrlFormProps | WifiFormProps | VCardFormProps;
+import { Values } from '../../components/FormsWrapper/FormsWrapper.constants';
+import { VCardFormValues } from '../../components/FormsWrapper/VCardForm/VCardForm.types';
 
 const buildVCardString = ({
   firstName,
@@ -11,7 +8,7 @@ const buildVCardString = ({
   homePhone,
   workPhone,
   email,
-}: VCardFormProps) => {
+}: VCardFormValues) => {
   const emails = email.map((email) => `EMAIL:${email}`).join('\n');
   const homePhones = homePhone
     .map((phone) => `TEL;TYPE=HOME:${phone}`)
